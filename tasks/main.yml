@@ -1,0 +1,8 @@
+---
+- name: modify partition type with geom
+  shell: gpart show {{ item.geom }} | grep ' {{ item.index }} *{{ item.type }}' ||
+         gpart modify -i {{ item.index }} -t {{ item.type }} {{ item.geom }}
+  with_items: geom_types
+  register: result_geom_types
+  changed_when: "'modified' in result_geom_types.stdout"
+  tags: geom

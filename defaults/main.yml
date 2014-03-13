@@ -1,0 +1,5 @@
+geom_types: []
+# This is an example
+#  - geom: ada0
+#    index: 4
+#    type: freebsd-zfs
